@@ -89,10 +89,10 @@ public class ConfigModuleServiceImpl extends ServiceImpl<ConfigModuleDao, BeanCo
                                             long curPage, long pageSize) {
         QueryWrapper<BeanConfigModule> query = new QueryWrapper<>();
         if (!StringUtils.isEmpty(moduleName)) {
-            query.eq("module_name", moduleName);
+            query.like("module_name", moduleName);
         }
         if (!StringUtils.isEmpty(configKey)) {
-            query.eq("config_key", configKey);
+            query.like("config_key", configKey);
         }
         if (version != 0) {
             query.eq("version", version);

@@ -32,8 +32,8 @@ public class ConfigModuleController {
 
     @RequestMapping("/loadPage")
     public BeanResult loadPage(
-            @RequestParam String moduleName,
-            @RequestParam String configKey,
+            @RequestParam(required = false) String moduleName,
+            @RequestParam(required = false) String configKey,
             @RequestParam(defaultValue = "0") int version,
             @RequestParam(defaultValue = "0") long curPage,
             @RequestParam(defaultValue = "20") long pageSize) {

@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * @author crabxyj
@@ -17,5 +18,5 @@ public interface ConfigBaseService {
     void modify(BeanConfigBase configBase)throws BaseException;
 
     IPage<BeanConfigBase> loadPage(String baseName,String type, String url, long curPage, long pageSize);
-
+    List<BeanConfigBase> load();
 }

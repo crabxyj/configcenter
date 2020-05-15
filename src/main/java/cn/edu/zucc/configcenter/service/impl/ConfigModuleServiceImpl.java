@@ -85,7 +85,7 @@ public class ConfigModuleServiceImpl extends ServiceImpl<ConfigModuleDao, BeanCo
     @Override
     public IPage<BeanConfigModule> loadPage(String moduleName,
                                             String configKey,
-                                            int version,
+                                            String version,
                                             long curPage, long pageSize) {
         QueryWrapper<BeanConfigModule> query = new QueryWrapper<>();
         if (!StringUtils.isEmpty(moduleName)) {
@@ -94,7 +94,7 @@ public class ConfigModuleServiceImpl extends ServiceImpl<ConfigModuleDao, BeanCo
         if (!StringUtils.isEmpty(configKey)) {
             query.like("config_key", configKey);
         }
-        if (version != 0) {
+        if (!StringUtils.isEmpty(version)) {
             query.eq("version", version);
         }
         Page<BeanConfigModule> page = new Page<>(curPage, pageSize);

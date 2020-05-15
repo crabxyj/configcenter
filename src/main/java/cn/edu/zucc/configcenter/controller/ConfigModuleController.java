@@ -34,7 +34,7 @@ public class ConfigModuleController {
     public BeanResult loadPage(
             @RequestParam(required = false) String moduleName,
             @RequestParam(required = false) String configKey,
-            @RequestParam(defaultValue = "0") int version,
+            @RequestParam(required = false) String version,
             @RequestParam(defaultValue = "0") long curPage,
             @RequestParam(defaultValue = "20") long pageSize) {
         IPage<BeanConfigModule> ipage =  service.loadPage(moduleName, configKey, version, curPage, pageSize);
@@ -46,7 +46,7 @@ public class ConfigModuleController {
             @RequestParam String moduleName,
             @RequestParam String configKey,
             @RequestParam String configValue,
-            @RequestParam(defaultValue = "1") int version) {
+            @RequestParam String version) {
         BeanConfigModule module = new BeanConfigModule()
                 .setModuleName(moduleName)
                 .setConfigKey(configKey)
@@ -78,7 +78,8 @@ public class ConfigModuleController {
     }
 
     @RequestMapping("/modify")
-    public BeanResult modify(int id,String moduleName, String configKey, String configValue, int version) {
+    public BeanResult modify(int id,String moduleName,
+                             String configKey, String configValue, String version) {
         try {
             BeanConfigModule module = new BeanConfigModule()
                     .setId(id)

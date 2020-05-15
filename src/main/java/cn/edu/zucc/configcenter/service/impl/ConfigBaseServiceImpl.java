@@ -16,6 +16,7 @@ import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * @author crabxyj
@@ -65,4 +66,8 @@ public class ConfigBaseServiceImpl extends ServiceImpl<ConfigBaseDao, BeanConfig
         return dao.selectPage(new Page<>(curPage, pageSize), query);
     }
 
+    @Override
+    public List<BeanConfigBase> load() {
+        return list();
+    }
 }

@@ -39,6 +39,11 @@ public class ConfigBaseController {
         return BeanResult.fromSuccess(ipage);
     }
 
+    @RequestMapping("/load")
+    public BeanResult loadPage() {
+        return BeanResult.fromSuccess(service.load());
+    }
+
     @RequestMapping("/add")
     public BeanResult add(
             @RequestParam String baseName,

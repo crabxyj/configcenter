@@ -7,7 +7,6 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 import java.util.Objects;
@@ -18,7 +17,7 @@ import java.util.Objects;
  */
 @Data
 @Accessors(chain = true)
-@TableName("configmoduleinfo")
+@TableName("config_module")
 public class BeanConfigModule {
     @TableId(type = IdType.AUTO)
     private int id;
@@ -36,8 +35,8 @@ public class BeanConfigModule {
     private String configValue;
 
     @TableField
-    @Min(value = 1,message = "配置项版本不能为空")
-    private int version;
+    @NotEmpty(message = "配置项版本不能为空")
+    private String version;
 
     @TableField
     private Date createTime;
@@ -63,7 +62,7 @@ public class BeanConfigModule {
             if (!Objects.equals(configValue,one.getConfigValue())){
                 return false;
             }
-            return version == one.getVersion();
+            return Objects.equals(version,one.getVersion());
         }
         return false;
     }

@@ -13,6 +13,6 @@ import java.util.List;
  */
 @Repository("configModuleDao")
 public interface ConfigModuleDao extends BaseMapper<BeanConfigModule> {
-    @Select(" select distinct module_name from configmoduleinfo ")
+    @Select(" select distinct module_name from config_module ")
     List<String> loadModuleNames();
 }

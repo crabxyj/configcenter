@@ -30,7 +30,7 @@ public interface ConfigModuleService {
      * @param pageSize 页大小
      * @return 查询结果
      */
-    IPage<BeanConfigModule> loadPage(String moduleName, String configKey,int version, long curPage, long pageSize);
+    IPage<BeanConfigModule> loadPage(String moduleName, String configKey,String version, long curPage, long pageSize);
 
     List<String> loadModuleNames();
 }

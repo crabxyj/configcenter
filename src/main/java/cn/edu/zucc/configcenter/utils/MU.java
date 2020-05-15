@@ -8,4 +8,5 @@ import cn.edu.zucc.configcenter.utils.exception.ExceptionUtils;
  */
 public class MU {
     public static final ExceptionUtils exUtils = new ExceptionUtils();
+    public static final StrUtils str = new StrUtils();
 }
